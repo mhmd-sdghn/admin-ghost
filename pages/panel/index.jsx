@@ -2,6 +2,7 @@ import { MoreSquare } from 'react-iconly';
 import Nav from '../../components/generals/Nav';
 import Steps, { Step } from '../../components/elements/Steps';
 import Input from '../../components/elements/Input';
+import DropUpload from '../../components/elements/Drop';
 import Head from '../../components/generals/Head';
 
 const selectOptions = [
@@ -55,7 +56,9 @@ export default function Panel() {
               />
             </div>
           </Step>
-          <Step key="1">مرحله یک</Step>
+          <Step key="1">
+            <DropUpload />
+          </Step>
           <Step key="2">مرحله دو</Step>
         </Steps>
       </div>
