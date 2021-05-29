@@ -1,9 +1,9 @@
-import validator from "validator";
-import { useState } from "react";
-import classNames from "classnames";
-import Select from "react-select";
+import validator from 'validator';
+import classNames from 'classnames';
+import Select from 'react-select';
+import { useState } from 'react';
 
-export default function Index({
+export default function Input({
   name,
   type,
   placeholder,
@@ -25,7 +25,6 @@ export default function Index({
   selectNoOptionsMessage,
   selectIsMulti,
 }) {
-  const [] = useState();
   const [containerClassName, setContainerClassName] = useState(
     classNames(
       `
@@ -40,60 +39,53 @@ export default function Index({
     transform
     duration-300 
     hover:shadow-lg
-    ${className || ""}`,
+    ${className || ''}`,
       {
-        "px-3": !select,
-        "py-1": !select,
+        'px-3': !select,
+        'py-1': !select,
       }
     )
   );
 
-  let inputClassName = `mx-2  appearance-none flex-1 outline-none mt-1 bg-opacity-0 placeholder-opacity-10  p-2 ${
-    align && align === "left"
-      ? "text-left"
-      : align && align === "center"
-      ? "text-center"
-      : "text-right"
+  const inputClassName = `mx-2  appearance-none flex-1 outline-none mt-1 bg-opacity-0 placeholder-opacity-10  p-2 ${
+    align && align === 'left'
+      ? 'text-left'
+      : align && align === 'center'
+      ? 'text-center'
+      : 'text-right'
   }`;
 
   const setMeIsOk = (isValid) => {
     let temp = containerClassName;
     if (isValid) {
-      if (setIsOk && typeof value === "function") setIsOk(true);
-      temp = temp.replace("ring-2 ring-red-500", "");
+      if (setIsOk && typeof value === 'function') setIsOk(true);
+      temp = temp.replace('ring-2 ring-red-500', '');
       setContainerClassName(temp);
     } else {
-      if (setIsOk && typeof value === "function") setIsOk(false);
-      const isAlreadyRed = temp.includes("ring-2 ring-red-500");
-      if (!isAlreadyRed) temp += " ring-2 ring-red-500";
+      if (setIsOk && typeof value === 'function') setIsOk(false);
+      const isAlreadyRed = temp.includes('ring-2 ring-red-500');
+      if (!isAlreadyRed) temp += ' ring-2 ring-red-500';
       setContainerClassName(temp);
-      return;
     }
   };
 
   const validateMe = (e) => {
-    const value = e.target.value;
-    if (setValue && typeof value === "function") setValue(value);
+    const { value } = e.target;
+    if (setValue && typeof value === 'function') setValue(value);
 
     if (validate) {
-      for (let item of validate) {
-        switch (item) {
-          case "isEmail":
-            setMeIsOk(validator.isEmail(value));
-            break;
-          case "isEmpty":
-            setMeIsOk(!validator.isEmpty(value));
-            break;
-          case "isNumeric":
-            setMeIsOk(validator.isNumeric(value, { no_symbols: false }));
-            break;
-        }
+      // eslint-disable-next-line no-restricted-syntax
+      for (const item of validate) {
+        if (item === 'isEmail') setMeIsOk(validator.isEmail(value));
+        else if (item === 'isEmpty') setMeIsOk(!validator.isEmpty(value));
+        else if (item === 'isNumeric')
+          setMeIsOk(validator.isNumeric(value, { no_symbols: false }));
       }
     }
   };
 
   return (
-    <div className={containerClassName + ""} dir={dir || "rtl"}>
+    <div className={`${containerClassName}`} dir={dir || 'rtl'}>
       {icon}
       {textarea ? (
         <textarea
@@ -114,19 +106,44 @@ export default function Index({
           options={selectOptions}
           onChange={setValue}
           isMulti={selectIsMulti || false}
-          noOptionsMessage={selectNoOptionsMessage || "هیچ موردی یافت نشد"}
+          noOptionsMessage={selectNoOptionsMessage || 'هیچ موردی یافت نشد'}
           className="w-full py-1 border-none outline-none"
           isSearchable={selectIsSearchable}
+          isClearable
           styles={{
-            control: (styles) => ({ ...styles, border: "none" }),
-            input: (styles) => ({ ...styles, outline: "none" }),
+            control: (styles) => ({
+              ...styles,
+              border: 'none',
+              boxShadow: 'none',
+              cursor: 'pointer',
+            }),
+            input: (styles) => ({ ...styles }),
+            placeholder: (styles) => ({ ...styles, border: 'none' }),
+            // eslint-disable-next-line no-unused-vars
+            singleValue: (styles, { data }) => ({ ...styles, border: 'none' }),
+            // eslint-disable-next-line no-unused-vars
+            option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+              ...styles,
+              cursor: 'pointer',
+              border: 'none',
+
+              // eslint-disable-next-line no-nested-ternary
+              backgroundColor: isDisabled
+                ? null
+                : // eslint-disable-next-line no-nested-ternary
+                isSelected
+                ? '#FDE68A'
+                : isFocused
+                ? '#FFFBEB'
+                : null,
+            }),
           }}
         />
       ) : (
         <input
           disabled={disabled}
           name={name}
-          type={type ? type : "text"}
+          type={type || 'text'}
           placeholder={placeholder}
           className={inputClassName}
           onChange={validateMe}

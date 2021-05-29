@@ -1,22 +1,21 @@
-import { Call, Lock, Heart } from "react-iconly";
-import { useEffect, useState } from "react";
-import { useRouter } from 'next/router'
-import BubbleParticles from "../components/Others/BubbleParticles.jsx";
-import Index from "../components/elements/Input";
-import Button from "../components/elements/Button";
+import { Call, Lock, Heart } from 'react-iconly';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import BubbleParticles from '../components/others/BubbleParticles.jsx';
+import Input from '../components/elements/Input';
+import Button from '../components/elements/Button';
+import Head from '../components/generals/Head';
 
 export default function Login() {
-
-  const router = useRouter()
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-  
     let timer;
     if (loading) {
       timer = setTimeout(() => {
         setLoading(false);
-        router.push('/panel')
+        router.push('/panel');
       }, 3000);
     }
 
@@ -27,13 +26,14 @@ export default function Login() {
 
   return (
     <div className="flex">
+      <Head title="ورود" />
       <div className="w-screen lg:w-2/5  h-screen flex items-center justify-center">
         <div className="flex flex-col items-center justify-center">
           <h5 className="my-2">
-            به پنل مدیریت <strong className="font-black">کدطوری</strong>{" "}
+            به پنل مدیریت <strong className="font-black">کدطوری</strong>{' '}
             خوش‌اومدی
           </h5>
-          <Index
+          <Input
             dir="ltr"
             align="left"
             name="phone_number"
@@ -42,7 +42,7 @@ export default function Login() {
             placeholder="09035436306"
             icon={<Call set="curved" primaryColor="#1F2937" />}
           />
-          <Index
+          <Input
             dir="ltr"
             align="left"
             className="mx-3 my-1"
@@ -57,7 +57,13 @@ export default function Login() {
           >
             نمیتونی وارد بشی ؟
           </a>
-          <Button block loading={loading} onClick={() => setLoading(true)} className="mt-5" bold>
+          <Button
+            block
+            loading={loading}
+            onClick={() => setLoading(true)}
+            className="mt-5"
+            bold
+          >
             ورود
           </Button>
         </div>
@@ -70,12 +76,12 @@ export default function Login() {
         </h2>
 
         <strong className="font-black text-white absolute bottom-5 flex">
-          ساخته شده با{" "}
+          ساخته شده با{' '}
           <Heart
             className="mx-2 animate-ping"
             set="curved"
             primaryColor="#e57373"
-          />{" "}
+          />{' '}
           توسط محمد صادقیان | بهار ۱۴۰۰
         </strong>
       </div>
