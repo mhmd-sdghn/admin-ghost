@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e4a9d7-03c6-43a6-b54a-8b6c0c363486" name="Default Changelist" comment="working on upload">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/elements/Drop/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Drop/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/elements/Input/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Input/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +24,10 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/components/elements/Drop/index.jsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.eslintrc.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -47,7 +56,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Mohammad\Desktop\codetori-front\node_modules\prettier-eslint" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -69,7 +78,8 @@
       <workItem from="1622279409799" duration="38899000" />
       <workItem from="1622356685036" duration="1493000" />
       <workItem from="1622358191677" duration="120000" />
-      <workItem from="1622358330518" duration="2961000" />
+      <workItem from="1622358330518" duration="14886000" />
+      <workItem from="1622374682096" duration="10596000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="add eslint">
       <created>1622307743218</created>

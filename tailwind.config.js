@@ -10,10 +10,12 @@ module.exports = {
       keyframes: {
         liner: {
           from: {
-            width: '0%',
+            transform: 'translateX(0rem)',
+            width: '30%'
           },
           to: {
-            width: '100%',
+            transform: 'translateX(31rem)',
+            width: '15%'
           },
         },
         shine: {

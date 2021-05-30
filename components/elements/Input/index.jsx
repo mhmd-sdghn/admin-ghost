@@ -100,6 +100,7 @@ export default function Input({
       ) : select ? (
         <Select
           name={name}
+          instanceId="1"
           placeholder={placeholder}
           isDisabled={disabled}
           defaultValue={selectDefaultValue}

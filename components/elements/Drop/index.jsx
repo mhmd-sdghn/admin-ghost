@@ -1,183 +1,195 @@
 import {useState, useEffect} from 'react';
-import {PaperUpload, Video} from 'react-iconly';
+import {PaperUpload, TickSquare, Delete, InfoCircle} from 'react-iconly';
 import persianJs from 'persianjs';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import classNames from 'classnames';
+import Upload from 'rc-upload'
 
 // TODO lock change step when upload is in progress
 // TODO complete multiple file upload
 
+/*{
+    id: 1,
+        name: 'animation.mp4',
+    progress: 100,
+    failed: false,
+    size: 534562
+},
+{
+    id: 2,
+        name: 'video.mp4',
+    progress: 23,
+    failed: true,
+    size: 521362
+},
+{
+    id: 3,
+        name: 'film.mp4',
+    progress: 64,
+    failed: false,
+    size: 285634
+},
+{
+    id: 3,
+        name: 'musicvideo.mp4',
+    progress: 0,
+    failed: false,
+    size: 285634
+}*/
+
 export default function DropUpload({maxFileCount, setLock}) {
-    const [uploads, setUploads] = useState({queue: []});
+    let length = 0;
 
-    useEffect(() => {
-        const date = new Date();
-        const hour = date.getHours();
-        const minutes = date.getMinutes();
-        const second = date.getSeconds()
-        console.log('Data Changed |', `${hour}:${minutes}:${second}`, ' => ', date)
-    }, [uploads])
+    const [queue, setQueue] = useState({data: []});
 
-    const setData = (data, id) => {
-        const {queue} = uploads;
-        queue[index] = {...queue[index], ...data};
-        setUploads({queue});
-    };
+    const [uploads, setUploads] = useState([])
 
-
-    const handleUpload = (file, info) => {
-
-       const { id } = info
-
-        const form = new FormData();
-
-        form.append('file', file);
-
-
-        axios({
-            method: 'POST',
-            url: 'https://api.codetori.ir',
-            data: form,
-            onUploadProgress: (e) => {
-                const progress = Math.floor((e.loaded / e.total) * 100);
-                setData(
-                    {
-                        isUploading: true,
-                        isWaiting: false,
-                        progress,
-                    },
-                    id
-                );
-            },
-        })
-            .then((res) => {
-                setData(
-                    {
-                        isUploading: false,
-                        isDone: true,
-                    },
-                    id
-                );
-                console.log(res.data);
-            })
-            .catch((e) => {
-                console.log(e);
-                setData(
-                    {
-                        isFailed: true,
-                        isWaiting: false,
-                        isUploading: false,
-                    },
-                    id
-                );
-            });
+    const updateData = (id, data) => {
+        const temp = queue.data;
+        const index = temp.findIndex(element => element.id === id)
+        temp[index] = {
+            ...temp[index],
+            ...data
+        }
+        setQueue({data: temp})
     }
 
-    const onDropHandler = (files) => {
+    const updateProgressHandler = (data) => {
+        const {percent, id} = data;
+        updateData(id, {progress: percent})
+    }
 
-        for (let i = 0; i < files.length; i++) {
-            const file = files[i]
+    const startNewUpload = (data) => {
+        const {name, type, uid} = data
+        const temp = queue.data;
+        temp.push({
+            id: uid,
+            name: name.length > 30 ? name.substr(0,30) + '...' : name,
+            type,
+            progress: 0,
+            failed: false
+        })
 
-            const info = {
-                id: Date.now() + Math.floor(Math.random() * 10000),
-                name: file.name,
-                isWaiting: true,
-                isUploading: false,
-                isFailed: false,
-                isDone: false,
-                progress: 0,
-            }
-            setUploads({
-                queue: [...uploads.queue, info],
-            });
-            handleUpload(file, info)
+        setQueue({data: temp})
+    }
+
+    const completeUpload = (e) => {
+
+    }
+
+    const customUpload = ({file, onProgress, headers,}) => {
+        if (false) return false;
+        else {
+            let data = new FormData();
+            data.append('file', file)
+
+            axios.post('https://api.codetori.ir/file',
+                data,
+                {
+                    headers,
+                    onUploadProgress: ({total, loaded}) => {
+                        onProgress({percent: Math.floor(loaded / total * 100), id: file.uid}, file)
+                    }
+                })
+                .then((res) => {
+                    console.log('Upload Completed', res.data)
+                })
+                .catch(err => {
+                    updateData(file.uid, {failed: true, progress: 99})
+                    console.log(err)
+                });
         }
-    };
+    }
+
 
     return (
-        <Dropzone onDrop={onDropHandler}>
-            {({getRootProps, getInputProps}) => (
-                <section className=" ">
-                    <div className="w-full flex flex-col justify-center items-center">
-                        <h3 className="text-2xl text-bold mb-3">آپلود فایل</h3>
-                        <h6 className="mb-3 text-gray-400 text-light text-xs">
-                            AVI, MP4, MKV
-                        </h6>
-                    </div>
-                    <div
-                        {...getRootProps()}
-                        style={{height: '300px'}}
-                        className="w-full h-full flex items-center justify-center rounded-lg  border-4  border-dashed cursor-pointer "
-                    >
-                        <input {...getInputProps()} />
-                        <div className="flex flex-col items-center justify-center">
-                            <PaperUpload
-                                set="curved"
-                                primaryColor="#000"
-                                size={128}
-                                style={{opacity: 0.6}}
-                                stroke="light"
-                            />
-                            <p className="text-gray-600 mt-3">
-                                فایل رو رها کن یا اینجا کلیک کن
-                            </p>
+        <>
+            <div className="w-full flex flex-col justify-center items-center">
+                <h3 className="text-2xl text-bold mb-3">آپلود فایل</h3>
+                <h6 className="mb-3 text-gray-400 text-light text-xs">
+                    AVI, MP4, MKV
+                </h6>
+            </div>
+            <Upload
+                name="file"
+                action="https://api.codetori.ir/file"
+                multiple
+                customRequest={customUpload}
+                onProgress={updateProgressHandler}
+                onStart={startNewUpload}
+                onSuccess={completeUpload}
+                style={{height: '300px'}}
+                className="w-full h-full flex items-center justify-center rounded-lg  border-4  border-dashed cursor-pointer "
+            >
+                <div className="flex flex-col items-center justify-center">
+                    <PaperUpload
+                        set="curved"
+                        primaryColor="#000"
+                        size={128}
+                        style={{opacity: 0.6}}
+                        stroke="light"
+                    />
+                    <p className="text-gray-600 mt-3">
+                        فایل رو اینجا رها کن یا کلیک کن
+                    </p>
+                </div>
+            </Upload>
+            <div dir="ltr" className="mt-5  rounded-lg bg-gray-100 shadow-sm  overflow-hidden">
+                {queue.data.map((item, index) => (
+                    <div key={item.id} className={classNames('p-1', {'animate-pulse': !item.progress})}>
+                        <div className="relative w-full p-3 ">
+                            <div className="flex w-full justify-between">
+                                <div className="flex items-center justify-start w-4/5">
+                                    <PaperUpload set="curved" primaryColor="#374151"/>
+                                    <h6 className={classNames({
+                                        'mx-2': true,
+                                        'text-bold': item.progress == 100
+                                    })}>{item.name}</h6>
+                                </div>
+                                <div className="flex items-center">
+                                    {
+                                        item.failed ?
+                                            <InfoCircle set="curved"/>
+                                            : !item.progress ?
+                                            <img src='/images/loading.gif' alt="loading" width={20} height={20}/>
+                                            : item.progress === 100 ?
+                                                <>
+                                                    <button>
+                                                        <Delete
+                                                            set="curved"
+                                                            size={20}
+                                                        />
+                                                    </button>
+                                                    <button className="ml-1">
+                                                        <TickSquare
+                                                            set="curved"
+                                                            size={20}/>
+                                                    </button>
+                                                </>
+                                                :
+                                                <span
+                                                    className="text-bold text-sm">
+                                                {`%${persianJs(item.progress.toString()).englishNumber().toString()}`}
+                                           </span>
+                                    }
+                                </div>
+                            </div>
+                            <div
+                                className={
+                                    classNames('h-1 rounded-full mt-2 ',
+                                        {
+                                            'animate-liner': !item.progress && !item.failed,
+                                            'bg-yellow-300': (item.progress && !item.failed) || !item.progress,
+                                            'bg-red-400': item.failed,
+                                            'bg-green-400': item.progress == 100
+                                        })}
+                                style={{width: `${!item.progress ? '30' : item.progress}%`}}/>
                         </div>
                     </div>
-                    <div className="mt-5">
-                        {uploads.queue.map((upload) => (
-                            <div
-                                key={upload.name}
-                                dir="ltr"
-                                className="w-full relative  bg-white  my-2  overflow-hidden shadow-sm rounded-full"
-                            >
-                                <div className="z-30 flex items-center justify-between w-full  px-3 py-2">
-                                    <div className="flex items-center">
-                                        <Video set="curved" stroke="light"/>
-                                        <h6 className="ml-2 text-bold text-xs">{upload.name}</h6>
-                                    </div>
-                                    <div className="text-xs text-bold">
-                                        {upload.isDone
-                                            ? 'آپلود موفق'
-                                            : upload.isWaiting
-                                                ? 'در صف آپلود'
-                                                : upload.isFailed
-                                                    ? 'آپلود ناموفق'
-                                                    : `%${persianJs(upload.progress.toString())
-                                                        .englishNumber()
-                                                        .toString()}`}
-                                    </div>
-                                </div>
+                ))}
+            </div>
 
-                                <div
-                                    className={classNames(
-                                        'h-1 rounded-full transition-all absolute bottom-0 px-1',
-                                        {
-                                            'animate-liner':
-                                                upload.isWaiting && !upload.isFailed && !upload.isDone,
-                                            'animate-pulse': upload.isUploading,
-                                        }
-                                    )}
-                                    style={{
-                                        width: `${
-                                            upload.isUploading && !upload.isWaiting
-                                                ? upload.progress
-                                                : 100
-                                        }%`,
-                                        backgroundColor: `${
-                                            upload.isUploading
-                                                ? '#FCD34D'
-                                                : upload.isFailed
-                                                ? '#F87171'
-                                                : '#6EE7B7'
-                                        }`,
-                                    }}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </section>
-            )}
-        </Dropzone>
+        </>
     );
 }
