@@ -1,17 +1,38 @@
 import classNames from 'classnames';
+import { InfoSquare } from 'react-iconly';
 import { useState } from 'react';
 import Button from '../Button';
+import Modal from '../Modal';
 
-export default function Steps({ children, title, description }) {
+export default function Steps({ children, title, description, lockStep }) {
   const [active, setActive] = useState(0);
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
 
   const activeStep = children.find((child) => child.key == active);
 
   const hasNextStep = activeStep.key < children.length - 1;
   const hasPrevStep = activeStep.key != 0;
 
+  const handleClick = (status) => {
+    if (lockStep) {
+      setIsAlertOpen(true);
+    } else if (status === 'back') setActive(active - 1);
+    else setActive(active + 1);
+  };
+
+  const Alert = (
+    <Modal
+      isOpen={isAlertOpen}
+      onSubmit={() => setIsAlertOpen(false)}
+      icon={<InfoSquare set="curved" primaryColor="#374151" size={48} />}
+    >
+      <span>{lockStep}</span>
+    </Modal>
+  );
+
   return (
     <div className="flex w-full h-screen items-center justify-center">
+      {Alert}
       <div className="w-full flex items-stretch" style={{ minHeight: '500px' }}>
         <div className="w-2/6 pl-12 mr-2 divide-y-2 divide-gray-200">
           <div className="w-full pb-10">
@@ -35,6 +56,7 @@ export default function Steps({ children, title, description }) {
                 <button
                   className="focus:outline-none"
                   onClick={() => setActive(index)}
+                  disabled={lockStep}
                 >
                   <h4
                     className={classNames({
@@ -55,7 +77,7 @@ export default function Steps({ children, title, description }) {
               type="default"
               disabled={!hasPrevStep}
               className="w-28"
-              onClick={() => setActive(active - 1)}
+              onClick={() => handleClick('back')}
             >
               قبلی
             </Button>
@@ -63,7 +85,7 @@ export default function Steps({ children, title, description }) {
             <Button
               disabled={!hasNextStep}
               className="w-28"
-              onClick={() => setActive(active + 1)}
+              onClick={() => handleClick('forward')}
             >
               بعدی
             </Button>

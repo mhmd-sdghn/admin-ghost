@@ -6,8 +6,6 @@ import axios from 'axios';
 import classNames from 'classnames';
 import Upload from 'rc-upload';
 
-// TODO lock change step when upload is in progress
-
 export default function DropUpload({
   maxSize,
   isUploading,
@@ -31,7 +29,6 @@ export default function DropUpload({
   const updateProgressHandler = (data) => {
     const { percent, id } = data;
     updateData(id, { progress: percent });
-    if (isUploading && typeof isUploading === 'function') isUploading(true);
   };
 
   const startNewUpload = (data) => {
@@ -86,6 +83,7 @@ export default function DropUpload({
 
   const customUpload = ({ file, onProgress, headers }) => {
     const validated = validate(file);
+
     if (!validated.ok) {
       updateData(file.uid, {
         name: (
@@ -111,9 +109,9 @@ export default function DropUpload({
 
     const data = new FormData();
     data.append('file', file);
-
+    if (isUploading && typeof isUploading === 'function') isUploading(true);
     axios
-      .post('https://api.codetori.ir/file', data, {
+      .post('https://api.codetori.ir/filee', data, {
         headers,
         onUploadProgress: ({ total, loaded }) => {
           onProgress(
@@ -123,16 +121,15 @@ export default function DropUpload({
         },
       })
       .then((res) => {
-        if (onDone && typeof onDone === 'function') onDone(res.data);
-        if (isUploading && typeof isUploading === 'function')
-          isUploading(false);
+        // if (onDone && typeof onDone === 'function') onDone(res.data);
+        // if (isUploading && typeof isUploading === 'function')
+        //   isUploading(false);
       })
       .catch((err) => {
         updateData(file.uid, { failed: true, progress: 99 });
-
-        if (onError && typeof onError === 'function') onError(err);
-        if (isUploading && typeof isUploading === 'function')
-          isUploading(false);
+        // if (onError && typeof onError === 'function') onError(err);
+        // if (isUploading && typeof isUploading === 'function')
+        //   isUploading(false);
       });
   };
 

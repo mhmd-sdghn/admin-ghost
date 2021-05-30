@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { MoreSquare } from 'react-iconly';
 import Nav from '../../components/generals/Nav';
 import Steps, { Step } from '../../components/elements/Steps';
@@ -12,6 +13,10 @@ const selectOptions = [
 ];
 
 export default function Panel() {
+  const [lockStep, setLockStep] = useState();
+
+  const handleLockStep = (status) => {};
+
   return (
     <div className="w-screen h-screen flex">
       <Head title="پنل مدیریت">
@@ -25,6 +30,7 @@ export default function Panel() {
         <Steps
           title="مراحل ثبت دوره"
           description="فقط چند مرحله تا ساختن دوره فاصله داری"
+          lockStep={lockStep}
         >
           <Step key="0" className="flex flex-wrap" title="اطلاعات دوره">
             <div className="w-1/2 p-2">
@@ -59,6 +65,7 @@ export default function Panel() {
           </Step>
           <Step key="1" title="آپلود ویدئو و آدیو">
             <DropUpload
+              isUploading={handleLockStep}
               accept={['mp4', 'avi', 'mkv', 'pdf']}
               maxSize={1024 * 10}
             />
