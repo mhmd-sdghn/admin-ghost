@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="some changes">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/elements/Button/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Button/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/elements/Drop/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Drop/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/generals/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/generals/Nav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/panel/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +45,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1622391814473</updated>
-      <workItem from="1622391821846" duration="1747000" />
+      <workItem from="1622391821846" duration="3760000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="some changes">
       <created>1622392100003</created>
@@ -54,7 +53,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۰۱" />
       <updated>1622392100003</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL‎۰۰۰۰۲" summary="cleanup">
+      <created>1622393660953</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۲" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۲" />
+      <updated>1622393660953</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -73,7 +78,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="some changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+    <MESSAGE value="cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

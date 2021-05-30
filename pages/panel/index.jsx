@@ -11,8 +11,6 @@ const selectOptions = [
   { value: 'seminar', label: 'سمینار' },
 ];
 
-const steps = ['اطلاعات دوره', 'آپلود صوتی تصویری', 'آپلود PDF', 'مرحله نهایی'];
-
 export default function Panel() {
   return (
     <div className="w-screen h-screen flex">
@@ -25,11 +23,10 @@ export default function Panel() {
       <Nav />
       <div className="container mx-auto max-w-6xl h-screen flex  flex-col  items-center justify-center p-5">
         <Steps
-          titles={steps}
           title="مراحل ثبت دوره"
           description="فقط چند مرحله تا ساختن دوره فاصله داری"
         >
-          <Step key="0" className="flex flex-wrap">
+          <Step key="0" className="flex flex-wrap" title="اطلاعات دوره">
             <div className="w-1/2 p-2">
               <Input
                 name="title"
@@ -60,10 +57,12 @@ export default function Panel() {
               />
             </div>
           </Step>
-          <Step key="1">
+          <Step key="1" title="آپلود ویدئو و آدیو">
             <DropUpload />
           </Step>
-          <Step key="2">مرحله دو</Step>
+          <Step key="2" title="آپلود فایل متنی(PDF)">
+            مرحله دو
+          </Step>
         </Steps>
       </div>
     </div>

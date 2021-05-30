@@ -76,7 +76,7 @@ export default function Nav() {
              trasform duration-300 hover:bg-gray-900 border-l-4 cursor-pointer ${
                router.pathname === item.href
                  ? 'border-yellow-300'
-                 : 'border-none'
+                 : 'border-gray-800'
              } `;
             return (
               <div key={item.href} className={calss}>
