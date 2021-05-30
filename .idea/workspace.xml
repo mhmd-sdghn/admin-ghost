@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="some changes">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/elements/Button/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Button/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/elements/Drop/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Drop/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/panel/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +28,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Mohammad\Desktop\codetori-front\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -46,11 +46,37 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1622391814473</updated>
-      <workItem from="1622391821846" duration="236000" />
+      <workItem from="1622391821846" duration="1747000" />
     </task>
+    <task id="LOCAL‎۰۰۰۰۱" summary="some changes">
+      <created>1622392100003</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۱" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۱" />
+      <updated>1622392100003</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

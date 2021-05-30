@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { PaperUpload, TickSquare, Delete, InfoCircle } from 'react-iconly';
 import persianJs from 'persianjs';
 import Dropzone from 'react-dropzone';
@@ -9,8 +9,6 @@ import Upload from 'rc-upload';
 // TODO lock change step when upload is in progress
 
 export default function DropUpload({ maxFileCount, isUploading }) {
-  const length = 0;
-
   const [queue, setQueue] = useState({ data: [] });
 
   const [uploads, setUploads] = useState([]);
@@ -131,14 +129,15 @@ export default function DropUpload({ maxFileCount, isUploading }) {
                       src="/images/loading.gif"
                       alt="loading"
                       width={20}
+                      alt="loading"
                       height={20}
                     />
                   ) : item.progress === 100 ? (
                     <>
-                      <button>
+                      <button type="button">
                         <Delete set="curved" size={20} />
                       </button>
-                      <button className="ml-1">
+                      <button type="button" className="ml-1">
                         <TickSquare set="curved" size={20} />
                       </button>
                     </>

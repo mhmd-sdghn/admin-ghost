@@ -1,4 +1,6 @@
-export default function Input({
+import classNames from 'classnames';
+
+export default function Button({
   className,
   icon,
   dir,
@@ -9,16 +11,38 @@ export default function Input({
   shadowOff,
   onClick,
   loading,
+  disabled,
 }) {
-  const btnClass = `rounded-lg p-3 transition-all transform  focus:outline-none focus:ring-wihte-1 duration-300 active:scale-75  hover:bg-yellow-400
-   ${!shadowOff && bold ? 'shadow-xl' : !shadowOff ? 'shadow-sm' : ''} 
-   ${block ? 'w-full' : ''}
-   ${className || ''}
-    ${type === 'default' ? 'bg-white' : 'bg-yellow-300'}
-    ${loading ? 'cursor-wait animate-pulse' : ''}`;
+  const btnClass = classNames(
+    {
+      'rounded-lg': true,
+      'p-3': true,
+      'transition-all': true,
+      transform: true,
+      'focus:outline-none': true,
+      'focus:ring-white-1': true,
+      'duration-300': true,
+      'active:scale-75': true,
+      'hover:bg-yellow-400': !disabled && type === 'primary',
+      'hover:bg-gray-100': !disabled && type === 'default',
+      'shadow-xl': !shadowOff && bold,
+      'shadow-sm': !shadowOff,
+      'w-full': block,
+      'bg-white': type === 'default',
+      'bg-yellow-300': !type || type === 'primary',
+      'cursor-wait animate-pulse': loading,
+      'opacity-60 cursor-not-allowed': disabled,
+    },
+    `${className || ''}`
+  );
 
   return (
-    <button className={btnClass} dir={dir || 'rtl'} onClick={onClick}>
+    <button
+      disabled={disabled}
+      className={btnClass}
+      dir={dir || 'rtl'}
+      onClick={onClick}
+    >
       {icon}
       <span className="text-center">
         {!loading ? (
@@ -29,6 +53,7 @@ export default function Input({
             src="/images/loading.gif"
             width={25}
             height={25}
+            alt="loading"
           />
         )}
       </span>

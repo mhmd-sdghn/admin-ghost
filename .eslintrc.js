@@ -35,11 +35,13 @@ module.exports = {
   plugins: ['react', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
+    '@next/next/no-img-element': 'off',
     'linebreak-style': ['error', 'windows'],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
     'no-nested-ternary': 'off',
+    'react/button-has-type': 'off',
   },
 };
