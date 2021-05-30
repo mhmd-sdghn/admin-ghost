@@ -11,11 +11,11 @@ module.exports = {
         liner: {
           from: {
             transform: 'translateX(0rem)',
-            width: '30%'
+            width: '30%',
           },
           to: {
             transform: 'translateX(31rem)',
-            width: '15%'
+            width: '15%',
           },
         },
         shine: {
