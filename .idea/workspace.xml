@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="drag upload competed">
-      <change afterPath="$PROJECT_DIR$/components/elements/Modal.jsx" afterDir="false" />
+    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="start working on change steps">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/elements/Drop/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Drop/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/elements/Steps/Step.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Steps/Step.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/panel/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1622391814473</updated>
-      <workItem from="1622391821846" duration="17653000" />
+      <workItem from="1622391821846" duration="20608000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="some changes">
       <created>1622392100003</created>
@@ -73,7 +72,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۰۴" />
       <updated>1622403206819</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL‎۰۰۰۰۵" summary="start working on change steps">
+      <created>1622411002790</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۵" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۵" />
+      <updated>1622411002790</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,7 +100,8 @@
     <MESSAGE value="cleanup" />
     <MESSAGE value="add button for steps" />
     <MESSAGE value="drag upload competed" />
-    <option name="LAST_COMMIT_MESSAGE" value="drag upload competed" />
+    <MESSAGE value="start working on change steps" />
+    <option name="LAST_COMMIT_MESSAGE" value="start working on change steps" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

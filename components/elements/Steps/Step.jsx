@@ -1,4 +1,5 @@
-import { useTransition, animated } from 'react-spring';
+import { useTransition, animated, useSpringRef } from 'react-spring';
+import { cloneElement } from 'react';
 
 export default function Step({ children, className }) {
   const items = Array.isArray(children)

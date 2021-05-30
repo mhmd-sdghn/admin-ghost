@@ -1,17 +1,23 @@
 import classNames from 'classnames';
 import { InfoSquare } from 'react-iconly';
-import { useState } from 'react';
+import { animated, useTransition } from 'react-spring';
+import { useState, useEffect } from 'react';
 import Button from '../Button';
 import Modal from '../Modal';
 
 export default function Steps({ children, title, description, lockStep }) {
   const [active, setActive] = useState(0);
+  const [activeStep, setActiveStep] = useState();
+
+  useEffect(() => {
+    setActiveStep(children.find((child) => child.key == active));
+    console.log(activeStep);
+  }, [active]);
+
   const [isAlertOpen, setIsAlertOpen] = useState(false);
 
-  const activeStep = children.find((child) => child.key == active);
-
-  const hasNextStep = activeStep.key < children.length - 1;
-  const hasPrevStep = activeStep.key != 0;
+  const hasNextStep = active < children.length - 1;
+  const hasPrevStep = active != 0;
 
   const handleClick = (status) => {
     if (lockStep) {
@@ -19,6 +25,12 @@ export default function Steps({ children, title, description, lockStep }) {
     } else if (status === 'back') setActive(active - 1);
     else setActive(active + 1);
   };
+
+  const transitions = useTransition(activeStep, {
+    from: { opacity: 0, y: -200 },
+    enter: { opacity: 1, y: 0 },
+    leave: { opacity: 0, y: 200, position: 'absolute', width: '100%' },
+  });
 
   const Alert = (
     <Modal
@@ -71,7 +83,11 @@ export default function Steps({ children, title, description, lockStep }) {
           </div>
         </div>
         <div className="w-4/6 relative">
-          <div>{activeStep}</div>
+          <div>
+            {transitions((style, item, t, index) => (
+              <animated.div style={style}>{item}</animated.div>
+            ))}
+          </div>
           <div className="w-full flex justify-between absolute -bottom-16">
             <Button
               type="default"
