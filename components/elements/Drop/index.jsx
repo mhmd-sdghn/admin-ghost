@@ -8,10 +8,15 @@ import Upload from 'rc-upload';
 
 // TODO lock change step when upload is in progress
 
-export default function DropUpload({ maxFileCount, isUploading }) {
+export default function DropUpload({
+  maxSize,
+  isUploading,
+  onDelete,
+  accept,
+  onDone,
+  onError,
+}) {
   const [queue, setQueue] = useState({ data: [] });
-
-  const [uploads, setUploads] = useState([]);
 
   const updateData = (id, data) => {
     const temp = queue.data;
@@ -43,8 +48,66 @@ export default function DropUpload({ maxFileCount, isUploading }) {
     setQueue({ data: temp });
   };
 
+  const onDeleteUpload = (id) => {
+    const temp = queue.data;
+    const index = temp.findIndex((element) => element.id === id);
+    if (index !== -1) {
+      temp.splice(index, 1);
+      setQueue({ data: temp });
+    }
+    if (onDelete && typeof onDelete === 'function') onDelete(id);
+  };
+
+  /**
+   * validate file format , file size and etc
+   * @param file
+   * @returns {{ok: boolean}|{msg: string, ok: boolean}}
+   */
+  const validate = (file) => {
+    if (accept && accept.length) {
+      const temp = file.name.split('.');
+      const format = temp[temp.length - 1];
+      const isAccepted = accept.includes(format);
+      if (!isAccepted)
+        return {
+          msg: 'خطای فرمت نامعتبر',
+          ok: false,
+        };
+    }
+    if (maxSize) {
+      if (maxSize < file.size / (1024 * 1024))
+        return {
+          msg: 'خطای فایل حجیم',
+          ok: false,
+        };
+    }
+    return { ok: true };
+  };
+
   const customUpload = ({ file, onProgress, headers }) => {
-    if (false) return false;
+    const validated = validate(file);
+    if (!validated.ok) {
+      updateData(file.uid, {
+        name: (
+          <>
+            {file.name}
+            <span className="text-sm text-red-400"> ({validated.msg}) </span>
+          </>
+        ),
+        failed: true,
+        progress: 1,
+      });
+      const timer = setTimeout(() => {
+        const temp = queue.data;
+        const index = temp.findIndex((element) => element.id === file.uid);
+        if (index !== -1) {
+          temp.splice(index, 1);
+          setQueue({ data: temp });
+          clearTimeout(timer);
+        }
+      }, 3000);
+      return false;
+    }
 
     const data = new FormData();
     data.append('file', file);
@@ -60,20 +123,21 @@ export default function DropUpload({ maxFileCount, isUploading }) {
         },
       })
       .then((res) => {
-        console.log('Upload Completed', res.data);
+        if (onDone && typeof onDone === 'function') onDone(res.data);
         if (isUploading && typeof isUploading === 'function')
           isUploading(false);
       })
       .catch((err) => {
         updateData(file.uid, { failed: true, progress: 99 });
+
+        if (onError && typeof onError === 'function') onError(err);
         if (isUploading && typeof isUploading === 'function')
           isUploading(false);
-        console.log(err);
       });
   };
 
   return (
-    <>
+    <div className="bg-white p-5 rounded-lg shadow-sm">
       <div className="w-full flex flex-col justify-center items-center">
         <h3 className="text-2xl text-bold mb-3">آپلود فایل</h3>
         <h6 className="mb-3 text-gray-400 text-light text-xs">AVI, MP4, MKV</h6>
@@ -99,16 +163,13 @@ export default function DropUpload({ maxFileCount, isUploading }) {
           <p className="text-gray-600 mt-3">فایل رو اینجا رها کن یا کلیک کن</p>
         </div>
       </Upload>
-      <div
-        dir="ltr"
-        className="mt-5  rounded-lg bg-gray-100 shadow-sm  overflow-hidden"
-      >
+      <div dir="ltr" className="mt-5    overflow-hidden">
         {queue.data.map((item, index) => (
           <div
             key={item.id}
             className={classNames('p-1', { 'animate-pulse': !item.progress })}
           >
-            <div className="relative w-full p-3 ">
+            <div className="relative w-full p-3 animate-fade-down">
               <div className="flex w-full justify-between">
                 <div className="flex items-center justify-start w-4/5">
                   <PaperUpload set="curved" primaryColor="#374151" />
@@ -135,11 +196,13 @@ export default function DropUpload({ maxFileCount, isUploading }) {
                   ) : item.progress === 100 ? (
                     <>
                       <button type="button">
-                        <Delete set="curved" size={20} />
+                        <Delete
+                          set="curved"
+                          size={20}
+                          onClick={() => onDeleteUpload(item.id)}
+                        />
                       </button>
-                      <button type="button" className="ml-1">
-                        <TickSquare set="curved" size={20} />
-                      </button>
+                      <TickSquare className="ml-1" set="curved" size={20} />
                     </>
                   ) : (
                     <span className="text-bold text-sm">
@@ -151,7 +214,7 @@ export default function DropUpload({ maxFileCount, isUploading }) {
                 </div>
               </div>
               <div
-                className={classNames('h-1 rounded-full mt-2 ', {
+                className={classNames('h-1 rounded-full mt-2', {
                   'animate-liner': !item.progress && !item.failed,
                   'bg-yellow-300':
                     (item.progress && !item.failed) || !item.progress,
@@ -164,6 +227,6 @@ export default function DropUpload({ maxFileCount, isUploading }) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }

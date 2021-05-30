@@ -6,8 +6,19 @@ module.exports = {
       animation: {
         liner: 'liner 1s ease-in-out infinite alternate',
         shine: 'shine 1s ease-in-out infinite alternate',
+        'fade-down': 'fade-down 0.5s ease-in-out',
       },
       keyframes: {
+        'fade-down': {
+          from: {
+            transform: 'translateY(-30px)',
+            opacity: 0,
+          },
+          to: {
+            transform: 'translationY(0px)',
+            opacity: 1,
+          },
+        },
         liner: {
           from: {
             transform: 'translateX(0rem)',

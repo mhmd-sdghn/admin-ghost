@@ -50,7 +50,7 @@ export default function Steps({ children, title, description }) {
         </div>
         <div className="w-4/6 relative">
           <div>{activeStep}</div>
-          <div className="w-full flex justify-between absolute bottom-0">
+          <div className="w-full flex justify-between absolute -bottom-16">
             <Button
               type="default"
               disabled={!hasPrevStep}

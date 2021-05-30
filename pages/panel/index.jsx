@@ -58,10 +58,13 @@ export default function Panel() {
             </div>
           </Step>
           <Step key="1" title="آپلود ویدئو و آدیو">
-            <DropUpload />
+            <DropUpload
+              accept={['mp4', 'avi', 'mkv', 'pdf']}
+              maxSize={1024 * 10}
+            />
           </Step>
           <Step key="2" title="آپلود فایل متنی(PDF)">
-            مرحله دو
+            <DropUpload />
           </Step>
         </Steps>
       </div>

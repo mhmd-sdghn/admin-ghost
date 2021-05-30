@@ -43,5 +43,6 @@ module.exports = {
     'react/prop-types': 'off',
     'no-nested-ternary': 'off',
     'react/button-has-type': 'off',
+    'consistent-return': 'off',
   },
 };
