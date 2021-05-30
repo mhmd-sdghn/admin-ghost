@@ -7,38 +7,8 @@ import classNames from 'classnames';
 import Upload from 'rc-upload'
 
 // TODO lock change step when upload is in progress
-// TODO complete multiple file upload
 
-/*{
-    id: 1,
-        name: 'animation.mp4',
-    progress: 100,
-    failed: false,
-    size: 534562
-},
-{
-    id: 2,
-        name: 'video.mp4',
-    progress: 23,
-    failed: true,
-    size: 521362
-},
-{
-    id: 3,
-        name: 'film.mp4',
-    progress: 64,
-    failed: false,
-    size: 285634
-},
-{
-    id: 3,
-        name: 'musicvideo.mp4',
-    progress: 0,
-    failed: false,
-    size: 285634
-}*/
-
-export default function DropUpload({maxFileCount, setLock}) {
+export default function DropUpload({maxFileCount, isUploading}) {
     let length = 0;
 
     const [queue, setQueue] = useState({data: []});
@@ -58,6 +28,7 @@ export default function DropUpload({maxFileCount, setLock}) {
     const updateProgressHandler = (data) => {
         const {percent, id} = data;
         updateData(id, {progress: percent})
+        if (isUploading && typeof isUploading === 'function') isUploading(true)
     }
 
     const startNewUpload = (data) => {
@@ -74,9 +45,6 @@ export default function DropUpload({maxFileCount, setLock}) {
         setQueue({data: temp})
     }
 
-    const completeUpload = (e) => {
-
-    }
 
     const customUpload = ({file, onProgress, headers,}) => {
         if (false) return false;
@@ -94,9 +62,11 @@ export default function DropUpload({maxFileCount, setLock}) {
                 })
                 .then((res) => {
                     console.log('Upload Completed', res.data)
+                    if (isUploading && typeof isUploading === 'function') isUploading(false)
                 })
                 .catch(err => {
                     updateData(file.uid, {failed: true, progress: 99})
+                    if (isUploading && typeof isUploading === 'function') isUploading(false)
                     console.log(err)
                 });
         }
@@ -118,7 +88,6 @@ export default function DropUpload({maxFileCount, setLock}) {
                 customRequest={customUpload}
                 onProgress={updateProgressHandler}
                 onStart={startNewUpload}
-                onSuccess={completeUpload}
                 style={{height: '300px'}}
                 className="w-full h-full flex items-center justify-center rounded-lg  border-4  border-dashed cursor-pointer "
             >

@@ -24,7 +24,7 @@ export default function Panel() {
       </Head>
       <Nav />
       <div className="container mx-auto max-w-6xl h-screen flex  flex-col  items-center justify-center p-5">
-        <Steps titles={steps}>
+        <Steps titles={steps} title="مراحل ثبت دوره" description="فقط چند مرحله تا ساختن دوره فاصله داری">
           <Step key="0" className="flex flex-wrap">
             <div className="w-1/2 p-2">
               <Input
@@ -46,7 +46,7 @@ export default function Panel() {
             <div className="w-full p-2">
               <Input textarea name="description" placeholder="توضیحات" />
             </div>
-            <div className="w-1/2 p-3">
+            <div className="w-1/2 p-2">
               <Input
                 select
                 selectOptions={selectOptions}
