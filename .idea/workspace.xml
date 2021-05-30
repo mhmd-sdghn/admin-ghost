@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e4a9d7-03c6-43a6-b54a-8b6c0c363486" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/elements/Drop/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Drop/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/panel/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +23,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/components/elements/Drop/index.jsx" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/.eslintrc.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/components/elements/Drop/index.jsx" root0="SKIP_INSPECTION" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -47,6 +44,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.17.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.17.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -68,6 +67,9 @@
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="95e4a9d7-03c6-43a6-b54a-8b6c0c363486" name="Default Changelist" comment="" />
@@ -80,6 +82,7 @@
       <workItem from="1622358191677" duration="120000" />
       <workItem from="1622358330518" duration="14886000" />
       <workItem from="1622374682096" duration="14419000" />
+      <workItem from="1622390890409" duration="464000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="add eslint">
       <created>1622307743218</created>
@@ -99,18 +102,30 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۰۳" />
       <updated>1622386012724</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL‎۰۰۰۰۴" summary="upload component is breathing">
+      <created>1622391152965</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۴" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۴" />
+      <updated>1622391152965</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add eslint" />
     <MESSAGE value="working on upload" />
     <MESSAGE value="upload component is breathing" />
     <option name="LAST_COMMIT_MESSAGE" value="upload component is breathing" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
