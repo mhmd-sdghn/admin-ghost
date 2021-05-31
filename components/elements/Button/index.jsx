@@ -38,6 +38,7 @@ export default function Button({
 
   return (
     <button
+      type="button"
       disabled={disabled}
       className={btnClass}
       dir={dir || 'rtl'}

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="fix some bugs and add lock to step while uploading or any other process">
+    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="just want to save">
+      <change afterPath="$PROJECT_DIR$/components/elements/Tooltip/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/elements/Button/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Button/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/generals/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/generals/Nav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/panel/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/playground.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/playground.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1622391814473</updated>
       <workItem from="1622391821846" duration="20608000" />
-      <workItem from="1622441926195" duration="15885000" />
+      <workItem from="1622441926195" duration="26267000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="some changes">
       <created>1622392100003</created>
@@ -84,7 +86,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۰۶" />
       <updated>1622451247542</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL‎۰۰۰۰۷" summary="just want to save">
+      <created>1622465156827</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۷" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۷" />
+      <updated>1622465156827</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,7 +117,8 @@
     <MESSAGE value="drag upload competed" />
     <MESSAGE value="start working on change steps" />
     <MESSAGE value="fix some bugs and add lock to step while uploading or any other process" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix some bugs and add lock to step while uploading or any other process" />
+    <MESSAGE value="just want to save" />
+    <option name="LAST_COMMIT_MESSAGE" value="just want to save" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -121,10 +130,10 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/components/generals/Nav.jsx</url>
-          <line>127</line>
+          <url>file://$PROJECT_DIR$/components/elements/Tooltip/index.jsx</url>
+          <line>79</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
