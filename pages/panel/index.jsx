@@ -14,8 +14,18 @@ const selectOptions = [
 
 export default function Panel() {
   const [lockStep, setLockStep] = useState();
+  const [lockMessage, setLockMessage] = useState('');
 
-  const handleLockStep = (status) => {};
+  const handleLockStep = (status) => {
+    setLockStep(status);
+    if (status) {
+      setLockMessage(
+        'زمانی که فایلی درحال آپلود شدن باشه نمیتونی به مرحله های دیگه بری ، همینطور یادت باشه که اگه به صفحه دیگه ای بری فایل آپلود شده از دسترس خارج میشه !'
+      );
+    } else {
+      setLockMessage('');
+    }
+  };
 
   return (
     <div className="w-screen h-screen flex">
@@ -31,6 +41,7 @@ export default function Panel() {
           title="مراحل ثبت دوره"
           description="فقط چند مرحله تا ساختن دوره فاصله داری"
           lockStep={lockStep}
+          lockMessage={lockMessage}
         >
           <Step key="0" className="flex flex-wrap" title="اطلاعات دوره">
             <div className="w-1/2 p-2">

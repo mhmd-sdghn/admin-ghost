@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="start working on change steps">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/elements/Button/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Button/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/elements/Drop/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Drop/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/elements/Steps/Step.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Steps/Step.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/panel/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +47,7 @@
       <option name="presentableId" value="Default" />
       <updated>1622391814473</updated>
       <workItem from="1622391821846" duration="20608000" />
+      <workItem from="1622441926195" duration="8256000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="some changes">
       <created>1622392100003</created>
@@ -94,6 +95,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="some changes" />
@@ -102,6 +104,18 @@
     <MESSAGE value="drag upload competed" />
     <MESSAGE value="start working on change steps" />
     <option name="LAST_COMMIT_MESSAGE" value="start working on change steps" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/components/elements/Steps/Steps.jsx</url>
+          <line>9</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

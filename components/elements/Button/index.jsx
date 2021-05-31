@@ -31,7 +31,7 @@ export default function Button({
       'bg-white': type === 'default',
       'bg-yellow-300': !type || type === 'primary',
       'cursor-wait animate-pulse': loading,
-      'opacity-60 cursor-not-allowed': disabled,
+      'opacity-50 cursor-not-allowed': disabled,
     },
     `${className || ''}`
   );

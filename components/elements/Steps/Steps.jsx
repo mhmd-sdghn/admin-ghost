@@ -5,13 +5,18 @@ import { useState, useEffect } from 'react';
 import Button from '../Button';
 import Modal from '../Modal';
 
-export default function Steps({ children, title, description, lockStep }) {
+export default function Steps({
+  children,
+  title,
+  description,
+  lockStep,
+  lockMessage,
+}) {
   const [active, setActive] = useState(0);
   const [activeStep, setActiveStep] = useState();
 
   useEffect(() => {
     setActiveStep(children.find((child) => child.key == active));
-    console.log(activeStep);
   }, [active]);
 
   const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -38,61 +43,56 @@ export default function Steps({ children, title, description, lockStep }) {
       onSubmit={() => setIsAlertOpen(false)}
       icon={<InfoSquare set="curved" primaryColor="#374151" size={48} />}
     >
-      <span>{lockStep}</span>
+      <span>{lockMessage}</span>
     </Modal>
   );
 
   return (
     <div className="flex w-full h-screen items-center justify-center">
       {Alert}
-      <div className="w-full flex items-stretch" style={{ minHeight: '500px' }}>
-        <div className="w-2/6 pl-12 mr-2 divide-y-2 divide-gray-200">
-          <div className="w-full pb-10">
-            <h4 className="font-extrabold text-lg">{title}</h4>
-            <h6 className="text-sm text-gray-500  mt-2">{description}</h6>
-          </div>
-          <div className="w-full pt-10">
-            {children.map(({ props, key }, index) => (
-              <div
-                key={key}
-                className={classNames({
-                  'p-4': true,
-                  'border-r-2': index > active,
-                  'border-r-4': index <= active,
-                  'border-yellow-300': index === active,
-                  'opacity-70': index < active,
-                  'opacity-50': index > active,
-                  'transition-all': true,
-                })}
-              >
-                <button
-                  className="focus:outline-none"
-                  onClick={() => setActive(index)}
-                  disabled={lockStep}
+      <div className="w-full flex items-stretch">
+        <div className="w-2/6 pl-12 mr-2  flex flex-col justify-between">
+          <div className="divide-y-2  divide-gray-200">
+            <div className="w-full pb-5">
+              <h4 className="font-extrabold text-lg">{title}</h4>
+              <h6 className="text-sm text-gray-500  mt-2">{description}</h6>
+            </div>
+            <div className="w-full pt-5">
+              {children.map(({ props, key }, index) => (
+                <div
+                  key={key}
+                  className={classNames({
+                    'p-4': true,
+                    'border-r-2': index > active,
+                    'border-r-4': index <= active,
+                    'border-yellow-300': index === active,
+                    'opacity-70': index < active,
+                    'opacity-50': index > active,
+                    'transition-all': true,
+                  })}
                 >
-                  <h4
-                    className={classNames({
-                      'font-bold': index === active,
-                    })}
+                  <button
+                    className="focus:outline-none"
+                    onClick={() => setActive(index)}
+                    disabled={lockStep}
                   >
-                    {props.title}
-                  </h4>
-                </button>
-              </div>
-            ))}
+                    <h4
+                      className={classNames({
+                        'font-bold': index === active,
+                      })}
+                    >
+                      {props.title}
+                    </h4>
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="w-4/6 relative">
-          <div>
-            {transitions((style, item, t, index) => (
-              <animated.div style={style}>{item}</animated.div>
-            ))}
-          </div>
-          <div className="w-full flex justify-between absolute -bottom-16">
+          <div className="w-full flex">
             <Button
               type="default"
               disabled={!hasPrevStep}
-              className="w-28"
+              className="w-1/2 ml-1"
               onClick={() => handleClick('back')}
             >
               قبلی
@@ -100,11 +100,18 @@ export default function Steps({ children, title, description, lockStep }) {
 
             <Button
               disabled={!hasNextStep}
-              className="w-28"
+              className="w-1/2 mr-1"
               onClick={() => handleClick('forward')}
             >
               بعدی
             </Button>
+          </div>
+        </div>
+        <div className="w-4/6 relative">
+          <div>
+            {transitions((style, item, t, index) => (
+              <animated.div style={style}>{item}</animated.div>
+            ))}
           </div>
         </div>
       </div>

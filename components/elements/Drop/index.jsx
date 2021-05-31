@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PaperUpload, TickSquare, Delete, InfoCircle } from 'react-iconly';
 import persianJs from 'persianjs';
-import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import classNames from 'classnames';
 import Upload from 'rc-upload';
@@ -15,6 +14,11 @@ export default function DropUpload({
   onError,
 }) {
   const [queue, setQueue] = useState({ data: [] });
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isUploading && typeof isUploading === 'function') isUploading(loading);
+  }, [loading]);
 
   const updateData = (id, data) => {
     const temp = queue.data;
@@ -81,7 +85,7 @@ export default function DropUpload({
     return { ok: true };
   };
 
-  const customUpload = ({ file, onProgress, headers }) => {
+  const customUpload = async ({ file, onProgress, headers }) => {
     const validated = validate(file);
 
     if (!validated.ok) {
@@ -109,9 +113,9 @@ export default function DropUpload({
 
     const data = new FormData();
     data.append('file', file);
-    if (isUploading && typeof isUploading === 'function') isUploading(true);
-    axios
-      .post('https://api.codetori.ir/filee', data, {
+    try {
+      if (isUploading && typeof isUploading === 'function') isUploading(true);
+      const res = await axios.post('https://api.codetori.ir/file', data, {
         headers,
         onUploadProgress: ({ total, loaded }) => {
           onProgress(
@@ -119,25 +123,24 @@ export default function DropUpload({
             file
           );
         },
-      })
-      .then((res) => {
-        // if (onDone && typeof onDone === 'function') onDone(res.data);
-        // if (isUploading && typeof isUploading === 'function')
-        //   isUploading(false);
-      })
-      .catch((err) => {
-        updateData(file.uid, { failed: true, progress: 99 });
-        // if (onError && typeof onError === 'function') onError(err);
-        // if (isUploading && typeof isUploading === 'function')
-        //   isUploading(false);
       });
+      if (onDone && typeof onDone === 'function') onDone(res.data);
+    } catch (err) {
+      if (onError && typeof onError === 'function') onError(err);
+      updateData(file.uid, { failed: true, progress: 99 });
+    }
+    if (isUploading && typeof isUploading === 'function') isUploading(false);
   };
 
   return (
     <div className="bg-white p-5 rounded-lg shadow-sm w-full">
       <div className="w-full flex flex-col justify-center items-center">
         <h3 className="text-2xl text-bold mb-3">آپلود فایل</h3>
-        <h6 className="mb-3 text-gray-400 text-light text-xs">AVI, MP4, MKV</h6>
+        <h6 className="mb-3 text-gray-400 text-light text-xs">
+          {accept && accept.length
+            ? accept.join(' | ').toUpperCase()
+            : 'همه فرمت ها مجاز است'}
+        </h6>
       </div>
       <Upload
         name="file"
