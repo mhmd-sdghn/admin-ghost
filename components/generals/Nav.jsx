@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Paper, Home, Message, Logout } from 'react-iconly';
 import { useRouter } from 'next/router';
 import Tooltip from 'react-tooltip';
+import classNames from 'classnames';
 
 const LogoPlaceholder =
   'https://purepng.com/public/uploads/thumbnail//google-stadia-logo-hd4.png';
@@ -35,32 +36,57 @@ export default function Nav() {
 
   const [iconHover, setIconHover] = useState(false);
   const [titleHover, setTitleHover] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const nav = useRef();
 
-  useEffect(() => {
-    let timer;
-    if (iconHover || titleHover) {
-      timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 200);
-      nav.current.style.width = '18rem';
-    } else {
-      setIsOpen(false);
-      timer = setTimeout(() => {
-        nav.current.style.width = 0;
-      }, 200);
-    }
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [titleHover, iconHover]);
+  // useEffect(() => {
+  //   let timer;
+  //   if (iconHover || titleHover) {
+  //     timer = setTimeout(() => {
+  //       setIsOpen(true);
+  //     }, 200);
+  //     nav.current.style.width = '18rem';
+  //   } else {
+  //     setIsOpen(false);
+  //     timer = setTimeout(() => {
+  //       nav.current.style.width = 'auto';
+  //     }, 200);
+  //   }
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [titleHover, iconHover]);
 
   return (
-    <div className="overflow-hidden  transition-all duration-500 flex items-center justify-start h-screen mr-2">
+    <div
+      className={classNames({
+        flex: true,
+        'overflow-hidden': true,
+        'transition-all': true,
+        'duration-500': true,
+        'py-5': true,
+        relative: true,
+        'z-10': true,
+        'w-screen': true,
+        'lg:w-2/12': true,
+        'top-2': true,
+      })}
+    >
       <div
-        className="bg-gray-800 relative w-1/4 shadow-xl rounded-full flex flex-col items-center z-10"
-        style={{ height: '95vh', width: `5rem` }}
+        className={classNames({
+          'lg:w-1/4': true,
+          'bg-gray-800': true,
+          'items-center': true,
+          'lg:flex-col': true,
+          flex: true,
+          'z-20': true,
+          'rounded-tl-3xl': true,
+          'rounded-bl-3xl': true,
+          relative: true,
+          'shadow-xl': true,
+          'w-screen': true,
+          'lg:h-full': true,
+        })}
         onMouseEnter={() => setIconHover(true)}
         onMouseLeave={() => setIconHover(false)}
       >
@@ -71,19 +97,28 @@ export default function Nav() {
         </div>
 
         <div className="w-full mx-auto">
-          {items.map((item, index) => {
-            const calss = `flex w-full p-2 items-center justify-center
-             trasform duration-300 hover:bg-gray-900 border-l-4 cursor-pointer ${
-               router.pathname === item.href
-                 ? 'border-yellow-300'
-                 : 'border-gray-800'
-             } `;
-            return (
-              <div key={item.href} className={calss}>
-                {item.icon}
-              </div>
-            );
-          })}
+          {items.map((item, index) => (
+            <div
+              key={item.href}
+              className={classNames({
+                flex: true,
+                'w-full': true,
+                'py-2': true,
+                'px-4 ': true,
+                'items-center': true,
+                'justify-center': true,
+                'transition-all': true,
+                'duration-300': true,
+                'hover:bg-gray-900': true,
+                'border-l-4': true,
+                'cursor-pointer': true,
+                'border-yellow-300': router.pathname === item.href,
+                'border-gray-800': router.pathname !== item.href,
+              })}
+            >
+              {item.icon}
+            </div>
+          ))}
         </div>
 
         <div
@@ -98,16 +133,26 @@ export default function Nav() {
         </div>
       </div>
       <div
-        className="bg-white py-7 transition-all overflow-hidden duration-500 w-3/4  shadow-xl rounded-tl-3xl rounded-bl-3xl relative -right-10"
-        onMouseEnter={() => setTitleHover(true)}
-        // onMouseMove={() => setIsOpen(true)}
-        onMouseLeave={() => setTitleHover(false)}
-        ref={nav}
-        style={{
-          height: '95vh',
-          opacity: `${isOpen ? 1 : 0}`,
-          width: '0',
-        }}
+        className={classNames({
+          'bg-white': true,
+          'py-7': true,
+          'transition-all': true,
+          'overflow-hidden': true,
+          'duration-500': true,
+          'shadow-xl': true,
+          'rounded-tl-3xl': true,
+          'rounded-bl-3xl': true,
+          absolute: true,
+          '-right-10': true,
+          z0: true,
+          'w-full': true,
+          'h-full': true,
+          // 'opacity-0': !isOpen,
+          // 'opacity-1': isOpen,
+        })}
+        // onMouseEnter={() => setTitleHover(true)}
+        // onMouseLeave={() => setTitleHover(false)}
+        // ref={nav}
       >
         <div className="flex min-w-full flex-col mb-9 pr-16">
           <h3 className="text-md min-w-full my-0">محمد صادقیان</h3>
