@@ -29,12 +29,7 @@ export default function Panel() {
 
   return (
     <div className="w-screen h-screen flex flex-col lg:flex-row">
-      <Head title="پنل مدیریت">
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
-        />
-      </Head>
+      <Head title="پنل مدیریت" />
       <Nav />
       {/* <div className="container mx-auto max-w-6xl h-screen flex  flex-col  items-center justify-center p-5"> */}
       {/*  <Steps */}

@@ -8,6 +8,6 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ['https://i.pinimg.com'],
+    domains: ['purepng.com', 'thumbor.forbes.com'],
   },
 };

@@ -35,3 +35,11 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox 64 */
+  -ms-overflow-style: none; /* Internet Explorer 11 */
+}
+.hide-scrollbar::-webkit-scrollbar { /** WebKit */
+  display: none;
+}
