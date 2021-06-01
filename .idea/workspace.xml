@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="add tooltip">
+    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="new tooltip save">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/elements/Tooltip/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Tooltip/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/generals/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/generals/Nav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/panel/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/playground.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/playground.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
@@ -53,7 +48,7 @@
       <updated>1622391814473</updated>
       <workItem from="1622391821846" duration="20608000" />
       <workItem from="1622441926195" duration="45481000" />
-      <workItem from="1622528741211" duration="8324000" />
+      <workItem from="1622528741211" duration="10741000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="some changes">
       <created>1622392100003</created>
@@ -103,7 +98,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۰۸" />
       <updated>1622475597343</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL‎۰۰۰۰۹" summary="new tooltip save">
+      <created>1622537306158</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۹" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۹" />
+      <updated>1622537306158</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +131,8 @@
     <MESSAGE value="fix some bugs and add lock to step while uploading or any other process" />
     <MESSAGE value="just want to save" />
     <MESSAGE value="add tooltip" />
-    <option name="LAST_COMMIT_MESSAGE" value="add tooltip" />
+    <MESSAGE value="new tooltip save" />
+    <option name="LAST_COMMIT_MESSAGE" value="new tooltip save" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
