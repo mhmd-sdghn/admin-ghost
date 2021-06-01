@@ -121,8 +121,9 @@ export default function Nav() {
         <Image src={LogoPlaceholder} width={40} height={40} />
       </div>
 
-      <div className="flex h-full w-10/12">
-        <div className="flex  w-full items-center justify-start overflow-auto hide-scrollbar">
+      <div className="flex h-full w-10/12 relative ">
+        <div className="flex  w-full items-center justify-start overflow-auto hide-scrollbar mx-2">
+          <div className="absolute top-0 right-0.5 bg-gradient-to-l from-gray-700 to-transparent w-6 h-full " />
           {items.map((item) => (
             <Tooltip
               key={Date.now() + Math.floor(Math.random() * 1000)}
@@ -136,6 +137,7 @@ export default function Nav() {
               <button>{item.icon}</button>
             </Tooltip>
           ))}
+          <div className="absolute top-0 left-0.5 bg-gradient-to-r from-gray-700 to-transparent w-6 h-full " />
         </div>
       </div>
 

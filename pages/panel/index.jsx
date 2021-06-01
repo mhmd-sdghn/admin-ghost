@@ -28,59 +28,62 @@ export default function Panel() {
   };
 
   return (
-    <div className="w-screen h-screen flex flex-col lg:flex-row">
+    <div className=" flex flex-col w-screen h-screen overflow-auto">
       <Head title="پنل مدیریت" />
       <Nav />
-      {/* <div className="container mx-auto max-w-6xl h-screen flex  flex-col  items-center justify-center p-5"> */}
-      {/*  <Steps */}
-      {/*    title="مراحل ثبت دوره" */}
-      {/*    description="فقط چند مرحله تا ساختن دوره فاصله داری" */}
-      {/*    lockStep={lockStep} */}
-      {/*    lockMessage={lockMessage} */}
-      {/*  > */}
-      {/*    <Step key="0" className="flex flex-wrap" title="اطلاعات دوره"> */}
-      {/*      <div className="w-1/2 p-2"> */}
-      {/*        <Input */}
-      {/*          name="title" */}
-      {/*          validate={['isEmpty']} */}
-      {/*          placeholder="عنوان" */}
-      {/*          icon={<MoreSquare set="curved" primaryColor="#000" />} */}
-      {/*        /> */}
-      {/*      </div> */}
-      {/*      <div className="w-1/2 p-2"> */}
-      {/*        <Input */}
-      {/*          name="slug" */}
-      {/*          align="left" */}
-      {/*          dir="ltr" */}
-      {/*          placeholder="slug" */}
-      {/*          icon={<MoreSquare set="curved" primaryColor="#000" />} */}
-      {/*        /> */}
-      {/*      </div> */}
-      {/*      <div className="w-full p-2"> */}
-      {/*        <Input textarea name="description" placeholder="توضیحات" /> */}
-      {/*      </div> */}
-      {/*      <div className="w-1/2 p-2"> */}
-      {/*        <Input */}
-      {/*          select */}
-      {/*          selectOptions={selectOptions} */}
-      {/*          name="type" */}
-      {/*          selectIsSearchable */}
-      {/*          placeholder="نوع دوره" */}
-      {/*        /> */}
-      {/*      </div> */}
-      {/*    </Step> */}
-      {/*    <Step key="1" title="آپلود ویدئو و آدیو"> */}
-      {/*      <DropUpload */}
-      {/*        isUploading={handleLockStep} */}
-      {/*        accept={['mp4', 'avi', 'mkv', 'pdf']} */}
-      {/*        maxSize={1024 * 10} */}
-      {/*      /> */}
-      {/*    </Step> */}
-      {/*    <Step key="2" title="آپلود فایل متنی(PDF)"> */}
-      {/*      <DropUpload /> */}
-      {/*    </Step> */}
-      {/*  </Steps> */}
-      {/* </div> */}
+      <div
+        className="container mx-auto w-full h-full"
+        style={{ maxWidth: '1280px' }}
+      >
+        <Steps
+          title="مراحل ثبت دوره"
+          description="فقط چند مرحله تا ساختن دوره فاصله داری"
+          lockStep={lockStep}
+          lockMessage={lockMessage}
+        >
+          <Step key="0" className="flex flex-wrap" title="اطلاعات دوره">
+            <div className="w-full lg:w-1/2 py-2">
+              <Input
+                name="title"
+                validate={['isEmpty']}
+                placeholder="عنوان"
+                icon={<MoreSquare set="curved" primaryColor="#000" />}
+              />
+            </div>
+            <div className="w-full lg:w-1/2 py-2">
+              <Input
+                name="slug"
+                align="left"
+                dir="ltr"
+                placeholder="slug"
+                icon={<MoreSquare set="curved" primaryColor="#000" />}
+              />
+            </div>
+            <div className="w-full py-2">
+              <Input textarea name="description" placeholder="توضیحات" />
+            </div>
+            <div className="w-full lg:w-1/2">
+              <Input
+                select
+                selectOptions={selectOptions}
+                name="type"
+                selectIsSearchable
+                placeholder="نوع دوره"
+              />
+            </div>
+          </Step>
+          <Step key="1" title="آپلود ویدئو و آدیو">
+            <DropUpload
+              isUploading={handleLockStep}
+              accept={['mp4', 'avi', 'mkv', 'pdf']}
+              maxSize={1024 * 10}
+            />
+          </Step>
+          <Step key="2" title="آپلود فایل متنی(PDF)">
+            <DropUpload />
+          </Step>
+        </Steps>
+      </div>
     </div>
   );
 }

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="tooltip is getting somewhere (save)">
-      <change afterPath="$PROJECT_DIR$/hooks/useElementChange/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useWindowResize/index.jsx" afterDir="false" />
+    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="tooltip completed (it killed me...)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/elements/Tooltip/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Tooltip/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/elements/Drop/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Drop/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/elements/Modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Modal/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Steps/Steps.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/generals/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/generals/Nav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/playground.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/playground.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/panel/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +16,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1tGOA0ia62NlBz4h1cwf0Bz8QZo" />
   <component name="ProjectViewState">
@@ -47,6 +54,7 @@
       <recent name="C:\Users\Mohammad\Desktop\codetori-front\hooks" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mohammad\Desktop\codetori-front\components\elements\Modal" />
       <recent name="C:\Users\Mohammad\Desktop\codetori-front" />
     </key>
   </component>
@@ -60,7 +68,10 @@
       <updated>1622391814473</updated>
       <workItem from="1622391821846" duration="20608000" />
       <workItem from="1622441926195" duration="45481000" />
-      <workItem from="1622528741211" duration="25717000" />
+      <workItem from="1622528741211" duration="28171000" />
+      <workItem from="1622567961708" duration="5463000" />
+      <workItem from="1622574508593" duration="2540000" />
+      <workItem from="1622580459996" duration="6309000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="some changes">
       <created>1622392100003</created>
@@ -122,7 +133,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۱۰" />
       <updated>1622539744554</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL‎۰۰۰۱۱" summary="tooltip completed (it killed me...)">
+      <created>1622555608735</created>
+      <option name="number" value="LOCAL‎۰۰۰۱۱" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۱۱" />
+      <updated>1622555608735</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,18 +168,8 @@
     <MESSAGE value="add tooltip" />
     <MESSAGE value="new tooltip save" />
     <MESSAGE value="tooltip is getting somewhere (save)" />
-    <option name="LAST_COMMIT_MESSAGE" value="tooltip is getting somewhere (save)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/components/elements/Steps/Steps.jsx</url>
-          <line>9</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="tooltip completed (it killed me...)" />
+    <option name="LAST_COMMIT_MESSAGE" value="tooltip completed (it killed me...)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

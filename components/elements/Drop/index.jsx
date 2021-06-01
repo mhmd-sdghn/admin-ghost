@@ -40,7 +40,7 @@ export default function DropUpload({
     const temp = queue.data;
     temp.push({
       id: uid,
-      name: name.length > 30 ? `${name.substr(0, 30)}...` : name,
+      name: name.length > 30 ? `${name.substr(0, 25)}...` : name,
       type,
       progress: 0,
       failed: false,
@@ -135,7 +135,7 @@ export default function DropUpload({
   return (
     <div className="bg-white p-5 rounded-lg shadow-sm w-full">
       <div className="w-full flex flex-col justify-center items-center">
-        <h3 className="text-2xl text-bold mb-3">آپلود فایل</h3>
+        <h3 className="lg:text-2xl text-bold mb-3">آپلود فایل</h3>
         <h6 className="mb-3 text-gray-400 text-light text-xs">
           {accept && accept.length
             ? accept.join(' | ').toUpperCase()
@@ -149,10 +149,21 @@ export default function DropUpload({
         customRequest={customUpload}
         onProgress={updateProgressHandler}
         onStart={startNewUpload}
-        style={{ height: '300px' }}
-        className="w-full h-full flex items-center justify-center rounded-lg  border-4  border-dashed cursor-pointer "
+        className="w-full h-full flex items-center justify-center rounded-lg p-3 border-4  border-dashed cursor-pointer "
       >
-        <div className="flex flex-col items-center justify-center">
+        <div className="lg:hidden flex flex-col items-center justify-center">
+          <PaperUpload
+            set="curved"
+            primaryColor="#000"
+            size={64}
+            style={{ opacity: 0.6 }}
+            stroke="light"
+          />
+          <p className="text-gray-600 mt-3 text-sm">
+            فایل رو اینجا رها کن یا کلیک کن
+          </p>
+        </div>
+        <div className="hidden lg:flex  flex-col items-center justify-center">
           <PaperUpload
             set="curved"
             primaryColor="#000"
@@ -177,6 +188,7 @@ export default function DropUpload({
                     className={classNames({
                       'mx-2': true,
                       'text-bold': item.progress == 100,
+                      'text-xs': true,
                     })}
                   >
                     {item.name}

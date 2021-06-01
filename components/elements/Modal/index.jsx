@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import Button from './Button';
+import Button from '../Button';
 
-export default function Modal({
+export default function Index({
   children,
   isOpen,
   icon,
@@ -21,7 +21,7 @@ export default function Modal({
   return isOpen ? (
     <div className="fixed top-0 z-50 -right-0.5 w-screen h-screen backdrop-filter backdrop-blur backdrop-brightness-90">
       <div className="relative w-full h-full flex items-center justify-center">
-        <div className="w-full md:w-1/2 lg:w-2/5 bg-white shadow-sm p-5 rounded-lg flex items-center mx-5 justify-between animate-fade-down">
+        <div className="w-full md:w-1/2 lg:w-2/5 bg-white shadow-sm p-5 rounded-lg flex flex-col text-sm lg:flex-row lg:text-md items-center mx-5 justify-between animate-fade-down">
           <div
             className={classNames({
               'w-1/8': true,
