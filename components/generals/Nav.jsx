@@ -127,11 +127,11 @@ export default function Nav() {
             <Tooltip
               key={Date.now() + Math.floor(Math.random() * 1000)}
               position="bottom"
-              className="p-3"
               text={item.name}
               bgColor="#fff"
               color="#000"
               cursorPointer
+              className="p-3"
             >
               <button>{item.icon}</button>
             </Tooltip>

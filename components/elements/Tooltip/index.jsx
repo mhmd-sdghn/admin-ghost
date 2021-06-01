@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
-import classNames from 'classnames';
+import useWindowSize from '../../../hooks/useWindowResize';
+import useElementChange from '../../../hooks/useElementChange';
 
 export default function Tooltip({
   children,
@@ -7,11 +8,13 @@ export default function Tooltip({
   text,
   className,
   bgColor,
-  cursorPointer,
   color,
 }) {
   const childRef = useRef();
   const tooltipRef = useRef();
+  const childChange = useElementChange(childRef.current);
+  const tooltipChange = useElementChange(tooltipRef.current);
+  const windowSize = useWindowSize();
   const [visible, setVisible] = useState(false);
   const [placing, setPlacing] = useState({
     top: 'unset',
@@ -24,7 +27,6 @@ export default function Tooltip({
     main: {
       width: 0,
       height: 0,
-      margin: 'auto',
     },
     top: {
       borderTop: `8px solid ${bgColor || '#374151'}`,
@@ -46,10 +48,29 @@ export default function Tooltip({
       borderLeft: `8px solid ${bgColor || '#374151'}`,
       borderTop: '4px solid transparent',
     },
+    'top-left': {
+      borderTop: `8px solid ${bgColor || '#374151'}`,
+      borderLeft: '8px solid transparent',
+      alignSelf: 'flex-start',
+    },
+    'top-right': {
+      borderTop: `8px solid ${bgColor || '#374151'}`,
+      borderRight: '8px solid transparent',
+      alignSelf: 'flex-end',
+    },
+    'bottom-left': {
+      borderBottom: `8px solid ${bgColor || '#374151'}`,
+      borderLeft: '8px solid transparent',
+      alignSelf: 'flex-start',
+    },
+    'bottom-right': {
+      borderBottom: `8px solid ${bgColor || '#374151'}`,
+      borderRight: '8px solid transparent',
+      alignSelf: 'flex-end',
+    },
   };
   const tooltip = {
     main: {
-      display: 'flex',
       position: 'fixed',
       width: 'max-content',
       top: placing.top,
@@ -64,83 +85,148 @@ export default function Tooltip({
       flexDirection: 'column-reverse',
     },
     left: {
-      flexDirection: 'row',
+      flexDirection: 'row-reverse',
     },
     right: {
-      flexDirection: 'row-reverse',
+      flexDirection: 'row',
+    },
+    'bottom-left': {
+      flexDirection: 'column-reverse',
+    },
+    'bottom-right': {
+      flexDirection: 'column-reverse',
+    },
+    'top-left': {
+      flexDirection: 'column',
+    },
+    'top-right': {
+      flexDirection: 'column',
+    },
+  };
+
+  const tooltipBox = {
+    main: {
+      backgroundColor: bgColor || '#374151',
+      color: color || '#fff',
+    },
+    top: {
+      borderRadius: '0.5rem',
+    },
+    bottom: {
+      borderRadius: '0.5rem',
+    },
+    left: {
+      borderRadius: '0.5rem',
+    },
+    right: {
+      borderRadius: '0.5rem',
+    },
+    'top-left': {
+      borderRadius: '0.5rem 0.5rem 0 0.5rem',
+    },
+    'top-right': {
+      borderRadius: '0.5rem 0.5rem 0.5rem 0',
+    },
+    'bottom-left': {
+      borderRadius: '0.5rem 0 0.5rem 0.5rem',
+    },
+    'bottom-right': {
+      borderRadius: '0 0.5rem 0.5rem 0.5rem',
     },
   };
 
   const pointerStyle = { ...pointer.main, ...pointer[position] };
   const tooltipStyle = { ...tooltip.main, ...tooltip[position] };
-
-  const onMouseHover = () => {};
-
-  const onMouseUnHover = () => {
-    // setPlacing({
-    //  top: 'unset',
-    //   ''
-    // });
-  };
+  const tooltipBoxStyle = { ...tooltipBox.main, ...tooltipBox[position] };
 
   const getXY = () => {
     const rect = childRef.current.getBoundingClientRect();
-    const { top, right, bottom, left, width } = rect;
+    const { top, right, bottom, left, width, height, x, y } = rect;
 
-    const tooltipWidth = tooltipRef.current.offsetWidth;
-    const tooltipHeight = tooltipRef.current.offsetHeight;
-
-    const childHeight = childRef.current.offsetHeight;
+    const tooltipWidth = tooltipRef.current?.offsetWidth;
+    const tooltipHeight = tooltipRef.current?.offsetHeight;
 
     switch (position) {
       case 'left':
         return {
-          left: left - tooltipWidth,
-          bottom: bottom - childHeight / 2 - tooltipHeight / 2,
+          left: x - tooltipWidth - 5,
+          top: y - height / 2,
         };
       case 'right':
         return {
-          right: left - tooltipWidth,
-          bottom: bottom - childHeight / 2 - tooltipHeight / 2,
+          left: x + width + 5,
+          top: y - height / 2,
         };
       case 'bottom':
         return {
-          right: right - width / 2 - tooltipWidth / 2,
-          bottom: top - tooltipHeight,
+          left: x + width / 2 - tooltipWidth / 2,
+          top: y + height / 2 + tooltipHeight / 2,
+        };
+      case 'top-left':
+        return {
+          left: x + width / 2 - tooltipWidth + 5,
+          top: y - tooltipHeight - 10,
+        };
+      case 'top-right':
+        return {
+          left: x + width / 2,
+          top: y - tooltipHeight - 10,
+        };
+      case 'bottom-left':
+        return {
+          left: x + width / 2 - tooltipWidth + 5,
+          top: y + height / 2 + tooltipHeight / 2,
+        };
+      case 'bottom-right':
+        return {
+          left: x + width / 2,
+          top: y + height / 2 + tooltipHeight / 2,
         };
       default:
         return {
-          right: right - width / 2 - tooltipWidth / 2,
-          top: top - tooltipHeight,
+          left: x + width / 2 - tooltipWidth / 2,
+          top: y - tooltipHeight - 10,
         };
     }
   };
 
-  useEffect(() => {
-    const placement = getXY();
-    setPlacing({ ...placing, ...placement });
-  }, [childRef.current, tooltipRef.current, visible]);
+  const onMouseHover = () => {
+    setVisible(true);
+    setTimeout(() => {
+      const placement = getXY();
+      setPlacing({ ...placing, ...placement });
+      if (tooltipRef.current) {
+        tooltipRef.current.style.opacity = '1';
+      }
+    }, 30);
+  };
+
+  const onMouseUnHover = () => {
+    setVisible(false);
+  };
 
   return (
     <>
-      <div
-        name="tooltip"
-        className="fixed flex flex-col transition-all  flex items-center justify-center"
-        ref={tooltipRef}
-        style={tooltipStyle}
-      >
-        {/* <div className="bg-gray-700 w-1 h-1 shadow-sm text-white rounded-full" /> */}
-        <div className="p-2 p-3 bg-gray-700 rounded-lg shadow-sm text-white">
-          <span>سلام</span>
+      {visible ? (
+        <div
+          name="tooltip"
+          className="absolute flex flex items-center justify-center opacity-0 transition-all"
+          ref={tooltipRef}
+          style={tooltipStyle}
+        >
+          {/* <div className="w-1 h-1 rounded-full bg-gray-800" /> */}
+          <div className="p-2 p-3 shadow-sm text-white" style={tooltipBoxStyle}>
+            <span>{text || 'سلام'}</span>
+          </div>
+          <div style={pointerStyle} />
         </div>
-        <div style={pointerStyle} />
-      </div>
+      ) : null}
       <div
         name="tooltip_child"
         ref={childRef}
         onMouseOver={onMouseHover}
         onMouseLeave={onMouseUnHover}
-        className="flex items-center justify-center p-1"
+        className={`flex items-center justify-center ${className || ''}`}
       >
         {children}
       </div>

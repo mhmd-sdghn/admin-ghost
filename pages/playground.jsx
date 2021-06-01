@@ -13,8 +13,8 @@ export default function PlayGround() {
         />
       </Head>
       <div className="flex items-center justify-center w-screen h-screen">
-        <Tooltip position="left">
-          <Button>کلیک کن</Button>
+        <Tooltip position="top" text="سلام من به تو یار قدیمی">
+          <Button>کلیک </Button>
         </Tooltip>
       </div>
     </>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="new tooltip save">
+    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="tooltip is getting somewhere (save)">
+      <change afterPath="$PROJECT_DIR$/hooks/useElementChange/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hooks/useWindowResize/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/elements/Tooltip/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Tooltip/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/generals/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/generals/Nav.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/playground.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/playground.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
@@ -26,6 +29,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hooks" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -38,6 +42,14 @@
     <property name="ts.external.directory.path" value="H:\Soft\WebStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mohammad\Desktop\codetori-front\hooks" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mohammad\Desktop\codetori-front" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,7 +60,7 @@
       <updated>1622391814473</updated>
       <workItem from="1622391821846" duration="20608000" />
       <workItem from="1622441926195" duration="45481000" />
-      <workItem from="1622528741211" duration="10741000" />
+      <workItem from="1622528741211" duration="25717000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="some changes">
       <created>1622392100003</created>
@@ -104,7 +116,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۰۹" />
       <updated>1622537306158</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL‎۰۰۰۱۰" summary="tooltip is getting somewhere (save)">
+      <created>1622539744554</created>
+      <option name="number" value="LOCAL‎۰۰۰۱۰" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۱۰" />
+      <updated>1622539744554</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,7 +150,8 @@
     <MESSAGE value="just want to save" />
     <MESSAGE value="add tooltip" />
     <MESSAGE value="new tooltip save" />
-    <option name="LAST_COMMIT_MESSAGE" value="new tooltip save" />
+    <MESSAGE value="tooltip is getting somewhere (save)" />
+    <option name="LAST_COMMIT_MESSAGE" value="tooltip is getting somewhere (save)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
