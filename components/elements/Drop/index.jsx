@@ -133,7 +133,7 @@ export default function DropUpload({
   };
 
   return (
-    <div className="bg-white p-5 rounded-lg shadow-sm w-full">
+    <div className="bg-white p-5 rounded-lg shadow-sm w-full h-full">
       <div className="w-full flex flex-col justify-center items-center">
         <h3 className="lg:text-2xl text-bold mb-3">آپلود فایل</h3>
         <h6 className="mb-3 text-gray-400 text-light text-xs">

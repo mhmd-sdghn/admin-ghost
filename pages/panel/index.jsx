@@ -42,7 +42,7 @@ export default function Panel() {
           lockMessage={lockMessage}
         >
           <Step key="0" className="flex flex-wrap" title="اطلاعات دوره">
-            <div className="w-full lg:w-1/2 py-2">
+            <div className="w-full lg:w-1/2 py-2 lg:pl-2">
               <Input
                 name="title"
                 validate={['isEmpty']}
@@ -50,7 +50,7 @@ export default function Panel() {
                 icon={<MoreSquare set="curved" primaryColor="#000" />}
               />
             </div>
-            <div className="w-full lg:w-1/2 py-2">
+            <div className="w-full lg:w-1/2 py-2 lg:pr-2">
               <Input
                 name="slug"
                 align="left"

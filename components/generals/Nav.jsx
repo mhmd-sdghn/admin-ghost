@@ -16,89 +16,79 @@ const items = [
     href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'صفحه اصلی',
+    icon: <Home set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
   {
-    name: 'پنل',
+    name: 'پیام ها',
     icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'خروج',
+    icon: <Logout set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'پروژه ها',
+    icon: <Paper set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'صفحه اصلی',
+    icon: <Home set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
   {
-    name: 'پنل',
+    name: 'پیام ها',
     icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'خروج',
+    icon: <Logout set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'پروژه ها',
+    icon: <Paper set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'صفحه اصلی',
+    icon: <Home set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
   {
-    name: 'پنل',
+    name: 'پیام ها',
     icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'خروج',
+    icon: <Logout set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'پروژه ها',
+    icon: <Paper set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'صفحه اصلی',
+    icon: <Home set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
   {
-    name: 'پنل',
+    name: 'پیام ها',
     icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    href: '/projects',
   },
   {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
-  },
-  {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
-  },
-  {
-    name: 'پنل',
-    icon: <Message set="curved" primaryColor="#fff" size={28} />,
-    href: '/panel',
+    name: 'خروج',
+    icon: <Logout set="curved" primaryColor="#fff" size={28} />,
+    href: '/projects',
   },
 ];
 
@@ -114,6 +104,7 @@ export default function Nav() {
       rounded-bl-3xl
       rounded-br-3xl
       flex
+      flex-row
       items-center
       justify-between
       px-3
@@ -127,14 +118,14 @@ export default function Nav() {
       "
     >
       <RemoveScrollBar />
-      <div className="w-1/12 h-full lg:w-full lg:h-1/12 flex items-center justify-center ">
+      <div className="w-1/12 h-full lg:w-full lg:h-52 flex items-center justify-center ">
         <Image src={LogoPlaceholder} width={40} height={40} />
       </div>
 
-      <div className="flex h-full w-10/12 lg:w-full lg:h-10/12 relative ">
-        <div className="flex w-full lg:flex-col items-center justify-start overflow-auto hide-scrollbar mx-2">
-          <div className="absolute top-0 right-0.5 lg:right-auto lg:w-full lg:h-5 bg-gradient-to-l from-gray-700 to-transparent w-6 h-full" />
-          <div>
+      <div className="flex h-full w-10/12 lg:w-full flex-grow relative ">
+        <div className="flex w-full flex-row lg:flex-col items-center justify-start overflow-auto hide-scrollbar mx-2">
+          <div className="absolute top-0 right-0.5 lg:right-auto lg:w-full lg:h-3 bg-gradient-to-l from-gray-700 to-transparent w-6 h-full" />
+          <div className="flex flex-row  lg:flex-col">
             {items.map((item) => (
               <Tooltip
                 key={Date.now() + Math.floor(Math.random() * 1000)}
@@ -149,11 +140,11 @@ export default function Nav() {
               </Tooltip>
             ))}
           </div>
-          <div className="absolute top-0 left-0.5  lg:right-auto lg:top-auto lg:bottom-auto lg:h-5 lg:w-full  bg-gradient-to-r from-gray-700 to-transparent w-6 h-full" />
+          <div className="absolute top-0 left-0.5  lg:right-auto lg:top-auto lg:bottom-auto lg:h-3 lg:w-full  bg-gradient-to-r from-gray-700 to-transparent w-6 h-full" />
         </div>
       </div>
 
-      <div className="h-full flex items-center justify-center w-1/12 lg:w-full lg:h-1/12">
+      <div className="h-full flex items-center justify-center w-1/12 lg:w-full lg:h-52">
         <Image
           src={ProfileImage}
           width={40}

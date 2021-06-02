@@ -28,7 +28,7 @@ export default function Step({ children, className }) {
   });
 
   return (
-    <div className={className}>
+    <div className={`w-full h-full ${className || ''}`} name="step">
       {transitions((style, item, t, index) => (
         <animated.div
           className={item.className}
