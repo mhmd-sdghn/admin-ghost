@@ -202,7 +202,7 @@ export default function Tooltip({
   };
 
   const onMouseUnHover = () => {
-    // setVisible(false);
+    setVisible(false);
   };
 
   return (

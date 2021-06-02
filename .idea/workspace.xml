@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="working on responsive">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8a130865-db9c-4230-afed-88c053580953" name="Default Changelist" comment="fix tooltip box - fix nav responsive">
       <change beforePath="$PROJECT_DIR$/components/elements/Tooltip/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/elements/Tooltip/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/generals/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/generals/Nav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/panel/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/playground.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/playground.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +67,7 @@
       <workItem from="1622567961708" duration="5463000" />
       <workItem from="1622574508593" duration="2540000" />
       <workItem from="1622580459996" duration="6408000" />
-      <workItem from="1622614832568" duration="3127000" />
+      <workItem from="1622614832568" duration="3201000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="some changes">
       <created>1622392100003</created>
@@ -145,7 +141,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۱۲" />
       <updated>1622587234022</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL‎۰۰۰۱۳" summary="fix tooltip box - fix nav responsive">
+      <created>1622620642508</created>
+      <option name="number" value="LOCAL‎۰۰۰۱۳" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۱۳" />
+      <updated>1622620642508</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +178,8 @@
     <MESSAGE value="tooltip is getting somewhere (save)" />
     <MESSAGE value="tooltip completed (it killed me...)" />
     <MESSAGE value="working on responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on responsive" />
+    <MESSAGE value="fix tooltip box - fix nav responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix tooltip box - fix nav responsive" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
