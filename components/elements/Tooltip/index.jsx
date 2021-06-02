@@ -150,12 +150,12 @@ export default function Tooltip({
       case 'left':
         return {
           left: x - tooltipWidth - 5,
-          top: y - height / 2,
+          top: y,
         };
       case 'right':
         return {
           left: x + width + 5,
-          top: y - height / 2,
+          top: y,
         };
       case 'bottom':
         return {
@@ -202,7 +202,7 @@ export default function Tooltip({
   };
 
   const onMouseUnHover = () => {
-    setVisible(false);
+    // setVisible(false);
   };
 
   return (

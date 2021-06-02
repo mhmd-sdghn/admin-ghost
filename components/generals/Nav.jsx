@@ -107,41 +107,53 @@ export default function Nav() {
 
   return (
     <div
-      className="bg-gray-700
-     w-screen h-16
+      className="
+      bg-gray-700
+      w-screen
+      h-16
       rounded-bl-3xl
       rounded-br-3xl
-      flex items-center
-       justify-between
-        px-3
-         relative"
+      flex
+      items-center
+      justify-between
+      px-3
+      relative
+      lg:w-20
+      lg:h-full
+      lg:rounded-tl-3xl
+      lg:rounded-bl-3xl
+      lg:rounded-br-none
+      lg:flex-col
+      "
     >
       <RemoveScrollBar />
-      <div className="h-full flex items-center 1/12">
+      <div className="w-1/12 h-full lg:w-full lg:h-1/12 flex items-center justify-center ">
         <Image src={LogoPlaceholder} width={40} height={40} />
       </div>
 
-      <div className="flex h-full w-10/12 relative ">
-        <div className="flex  w-full items-center justify-start overflow-auto hide-scrollbar mx-2">
-          <div className="absolute top-0 right-0.5 bg-gradient-to-l from-gray-700 to-transparent w-6 h-full " />
-          {items.map((item) => (
-            <Tooltip
-              key={Date.now() + Math.floor(Math.random() * 1000)}
-              position="bottom"
-              text={item.name}
-              bgColor="#fff"
-              color="#000"
-              cursorPointer
-              className="p-3"
-            >
-              <button>{item.icon}</button>
-            </Tooltip>
-          ))}
-          <div className="absolute top-0 left-0.5 bg-gradient-to-r from-gray-700 to-transparent w-6 h-full " />
+      <div className="flex h-full w-10/12 lg:w-full lg:h-10/12 relative ">
+        <div className="flex w-full lg:flex-col items-center justify-start overflow-auto hide-scrollbar mx-2">
+          <div className="absolute top-0 right-0.5 lg:right-auto lg:w-full lg:h-5 bg-gradient-to-l from-gray-700 to-transparent w-6 h-full" />
+          <div>
+            {items.map((item) => (
+              <Tooltip
+                key={Date.now() + Math.floor(Math.random() * 1000)}
+                position="left"
+                text={item.name}
+                bgColor="#fff"
+                color="#000"
+                cursorPointer
+                className="p-3"
+              >
+                <button>{item.icon}</button>
+              </Tooltip>
+            ))}
+          </div>
+          <div className="absolute top-0 left-0.5  lg:right-auto lg:top-auto lg:bottom-auto lg:h-5 lg:w-full  bg-gradient-to-r from-gray-700 to-transparent w-6 h-full" />
         </div>
       </div>
 
-      <div className="h-full flex items-center w-1/12">
+      <div className="h-full flex items-center justify-center w-1/12 lg:w-full lg:h-1/12">
         <Image
           src={ProfileImage}
           width={40}

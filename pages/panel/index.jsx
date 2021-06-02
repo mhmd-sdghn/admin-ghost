@@ -28,7 +28,7 @@ export default function Panel() {
   };
 
   return (
-    <div className=" flex flex-col w-screen h-screen overflow-auto">
+    <div className=" flex flex-col lg:flex-row w-screen h-screen overflow-auto">
       <Head title="پنل مدیریت" />
       <Nav />
       <div
